@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.contrib.messages import get_messages
 from .models import Room, Topic
 from .forms import RoomForm
 
@@ -23,7 +24,7 @@ def loginPage(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'Username or password is required')
+            messages.error(request, 'Username OR password does not exist')
             
     context = {}
     return render(request, 'base/login_register.html', context)
