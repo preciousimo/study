@@ -1,6 +1,6 @@
 # Study Buddy
 
-Cloning the repository
+#Cloning the repository
 
 --> Clone the repository using the command below :
 
