@@ -34,6 +34,11 @@ python manage.py runserver
 
     ⚠ Then, the development server will be started at http://127.0.0.1:8000/
 
+## Documentation
+
+You can check up django documentation page for any further information.
+[Django Docs](https://docs.djangoproject.com/en/4.0/)
+
 
 ## Contributors
 
