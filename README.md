@@ -12,10 +12,10 @@ cd StudyBud
 
 --> Create a virtual environment :
 
-# Let's install virtualenv first
+# Install virtualenv first
 pip install virtualenv
 
-# Then we create our virtual environment
+# Then create virtual environment
 virtualenv envname
 
 --> Activate the virtual environment :
@@ -33,3 +33,8 @@ Running the App
 python manage.py runserver
 
     ⚠ Then, the development server will be started at http://127.0.0.1:8000/
+
+
+## Contributors
+
+- [@preciousimo](https://github.com/preciousimo)
