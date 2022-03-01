@@ -14,8 +14,8 @@ from pathlib import Path
 import os
 import django_heroku
 import dj_database_url
-from decouple import config
 
+from decouple import config, Csv
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG', cast=bool)
 # DEBUG_PROPAGATE_EXCEPTIONS = True
 
 ALLOWED_HOSTS = []
@@ -90,7 +90,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'studybud.wsgi.application'
 
-ALLOWED_HOSTS = ['*', '.***.com', '.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
 # Database
@@ -103,7 +103,16 @@ ALLOWED_HOSTS = ['*', '.***.com', '.herokuapp.com', 'localhost', '127.0.0.1']
 #     }
 # }
 
-DATABASES = str(os.getenv('DATABASES'))
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': '5432'
+    }
+}
 
 
 # Password validation
