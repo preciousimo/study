@@ -90,6 +90,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'studybud.wsgi.application'
 
+ALLOWED_HOSTS = ['*', '.***.com', '.herokuapp.com', 'localhost', '127.0.0.1']
+
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
