@@ -16,3 +16,4 @@ sqlparse==0.4.2
 tzdata==2021.5
 whitenoise==6.0.0
 python-decouple==3.1
+python-dotenv=0.19.2
