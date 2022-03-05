@@ -43,14 +43,14 @@ class RoomAdmin(admin.ModelAdmin):
     list_filter = (
         'name',
         'topic',
-        'description',
+        'description'
     )
 
 class MessageAdmin(admin.ModelAdmin):
     
     list_display = (
         'user',
-        'room,
+        'room',
         'body'
     )
 
