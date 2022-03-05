@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils.translation import ugettext_lazy as _
+
 class User(AbstractUser):
     username = models.CharField(max_length=30, unique=True)
     name = models.CharField(max_length=200, null=True)
@@ -17,7 +19,6 @@ class Topic(models.Model):
     def __str__(self):
         return self.name
 
-
 class Room(models.Model):
     host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
@@ -33,7 +34,6 @@ class Room(models.Model):
 
     def __str__(self):
         return self.name
-
 
 class Message(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
