@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils.translation import ugettext_lazy as _
+
 class User(AbstractUser):
     username = models.CharField(max_length=30, unique=True)
     name = models.CharField(max_length=200, null=True)
