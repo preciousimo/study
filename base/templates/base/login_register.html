@@ -13,7 +13,7 @@
       <div class="layout__body">
         <h2 class="auth__tagline">Find your study partner</h2>
 
-        <form class="form" action="" method="POST">
+        <form class="form" action="{% url 'login' %}" method="POST" autocomplete="off" novalidate >
           {% csrf_token %}
           <div class="form__group form__group">
             <label for="room_name">Email</label>
