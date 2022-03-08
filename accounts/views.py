@@ -6,7 +6,7 @@ from django.contrib import messages
 
 # Create your views here.
 def registerPage(request):
-    return HttpResponse('Registration Page... ')
+    return render(request, 'register.html')
 
 def loginPage(request):
     return render(request, 'login.html')
