@@ -11,13 +11,12 @@
             <div class="layout__body">
                 <h2 class="auth__tagline">Find your study partner</h2>
 
-                <form class="form" action="" method="POST">
+                <form class="form" action="{% url 'register' %}" method="POST">
                     {% csrf_token %} {% for field in form %}
                     <div class="form__group form__group">
                         <label for="room_name">{{field.label}}</label> {{field}}
                     </div>
                     {% endfor %}
-
                     <button class="btn btn--main" type="submit">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                             viewBox="0 0 32 32">
