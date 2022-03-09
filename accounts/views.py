@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from base.models import User
 from .forms import UserForm, MyUserCreationForm
+from base.EmailBackEnd import EmailBackEnd
+from base import urls
 
 # Create your views here.
 def registerPage(request):
@@ -22,7 +24,19 @@ def registerPage(request):
     else:
         form = MyUserCreationForm(request.POST)
         return render(request, 'register.html', {'form':form})
+
 def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('email')
+        password = request.POST.get('password')
+        user = EmailBackEnd.authenticate(request, username=username,password=password)
+        if user != None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'Invalid Credentials')
+            return redirect('/login')
+
     return render(request, 'login.html')
 
 def logoutUser(request):
