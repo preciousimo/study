@@ -15,9 +15,9 @@ def registerPage(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
-            #messages.success(request, "{} created successfully".format(user.username))
-            return HttpResponse('Registration Successful')
-            #return redirect('/login')
+            username = form.cleaned_data.get('username')
+            messages.success(request, "{} created successfully".format(username))
+            return redirect('/login')
         else:
             messages.error(request, "Failed to register user")
             return redirect('/register')
