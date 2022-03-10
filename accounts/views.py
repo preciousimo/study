@@ -40,4 +40,5 @@ def loginPage(request):
     return render(request, 'login.html')
 
 def logoutUser(request):
-    return HttpResponse('Logout Page... ')
+    logout(request)
+    return redirect('home')
