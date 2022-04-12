@@ -48,22 +48,7 @@
           </a>
         </div>
         {% endif %}
-
-        <!-- <button class="action-button" data-id="120" data-delete-url="https://randomuser.me/api/3324923"
-            data-edit-url="profile.html">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-              <title>ellipsis-horizontal</title>
-              <path
-                d="M16 7.843c-2.156 0-3.908-1.753-3.908-3.908s1.753-3.908 3.908-3.908c2.156 0 3.908 1.753 3.908 3.908s-1.753 3.908-3.908 3.908zM16 1.98c-1.077 0-1.954 0.877-1.954 1.954s0.877 1.954 1.954 1.954c1.077 0 1.954-0.877 1.954-1.954s-0.877-1.954-1.954-1.954z">
-              </path>
-              <path
-                d="M16 19.908c-2.156 0-3.908-1.753-3.908-3.908s1.753-3.908 3.908-3.908c2.156 0 3.908 1.753 3.908 3.908s-1.753 3.908-3.908 3.908zM16 14.046c-1.077 0-1.954 0.877-1.954 1.954s0.877 1.954 1.954 1.954c1.077 0 1.954-0.877 1.954-1.954s-0.877-1.954-1.954-1.954z">
-              </path>
-              <path
-                d="M16 31.974c-2.156 0-3.908-1.753-3.908-3.908s1.753-3.908 3.908-3.908c2.156 0 3.908 1.753 3.908 3.908s-1.753 3.908-3.908 3.908zM16 26.111c-1.077 0-1.954 0.877-1.954 1.954s0.877 1.954 1.954 1.954c1.077 0 1.954-0.877 1.954-1.954s-0.877-1.954-1.954-1.954z">
-              </path>
-            </svg>
-          </button> -->
+ 
       </div>
       <div class="room__box scroll">
         <div class="room__header scroll">
@@ -79,10 +64,8 @@
               </div>
               <span>@{{room.host.username}}</span>
             </a>
-          </div>
-          <!-- <div class="room__details">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, tenetur laudantium? Dicta repellendus rerum consectetur, voluptatem repudiandae eum ea porro cupiditate provident nulla, deserunt, ab ipsum corporis laboriosam deleniti molestias?
-          </div> -->
+          </div> 
+          
           <span class="room__topics">{{room.topic}}</span>
         </div>
         <div class="room__conversation">
@@ -122,6 +105,7 @@
           </div>
         </div>
       </div>
+
       <div class="room__message">
         <form action="" method="POST">
           {% csrf_token %}
@@ -138,7 +122,7 @@
         {% for user in participants %}
         <a href="{% url 'user-profile' user.id %}" class="participant">
           <div class="avatar avatar--medium">
-            <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+            <img src="{{message.user.avatar.url}}" />
           </div>
           <p>
             {{user.username}}

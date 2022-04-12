@@ -10,7 +10,7 @@
       <div class="profile">
         <div class="profile__avatar">
           <div class="avatar avatar--large active">
-            <img src="https://randomuser.me/api/portraits/men/11.jpg" />
+            <img src="{{request.user.avatar.url}}" />
           </div>
         </div>
         <div class="profile__info">
@@ -22,19 +22,19 @@
         <div class="profile__about">
           <h3>About</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo tenetur facilis sunt nemo debitis quisquam hic atque aut? Ducimus alias placeat optio accusamus repudiandae quis ab ex exercitationem rem?
+            {{request.user.bio}}
           </p>
         </div>
       </div>
 
       <div class="roomList__header">
         <div>
-          <h2>Study Rooms Hosted by dennis_ivy</a>
+          <h2>Study Rooms Hosted by  {{user.username}}</a>
           </h2>
         </div>
       </div>
-      {% include 'base/feed_component.html' %}
 
+      {% include 'base/feed_component.html' %}
     </div>
     <!-- Room List End -->
 
