@@ -1,4 +1,7 @@
+<!-- Extends from main.html -->
 {% extends 'main.html' %}
+
+<!-- Login page content -->
 {% block content %}
 <main class="auth layout">
     <div class="container">
@@ -11,6 +14,7 @@
             <div class="layout__body">
                 <h2 class="auth__tagline">Find your study partner</h2>
 
+                <!-- Login form -->
                 <form class="form" action="{% url 'login' %}" method="POST" autocomplete="off" novalidate>
                     {% csrf_token %}
                     <div class="form__group form__group">
@@ -38,7 +42,9 @@
                         Login
                     </button>
                 </form>
+                <!-- End of login form -->
 
+                <!-- Option to register if not registered already -->
                 <div class="auth__action">
                     <p>Haven't signed up yet?</p>
                     <a href="{% url 'register' %}" class="btn btn--link">Sign Up</a>
